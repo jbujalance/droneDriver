@@ -5,17 +5,11 @@ package com.bujalance.drone.model;
  */
 public class Cell {
 
-	/**
-	 * X coordinate of the cell in the grid.
-	 */
+	/** X coordinate of the cell in the grid. */
 	private Integer fCoordX;
-	/**
-	 * Y coordinate of the cell in the grid.
-	 */
+	/** Y coordinate of the cell in the grid. */
 	private Integer fCoordY;
-	/**
-	 * The cell Id
-	 */
+	/** The cell Id. */
 	private String fId;
 
 	/**
