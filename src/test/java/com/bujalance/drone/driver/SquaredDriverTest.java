@@ -13,6 +13,17 @@ import static org.junit.Assert.assertThat;
 
 public class SquaredDriverTest {
 
+	@Test(expected = IllegalArgumentException.class)
+	public void getCellIdsToVisitWithInvalidRange() {
+		// GIVEN a driver over a grid
+		IDriver squaredDriver = new SquaredDriver(new Grid(2, 2));
+
+		// WHEN retrieving the cell ids to visit with an invalid range
+		squaredDriver.getCellIdsToVisit(new Coords(1, 1), -1);
+
+		// THEN an exception is thrown
+	}
+
 	@Test
 	public void getCellIdsToVisitOnZeroRange() {
 		// GIVEN a driver over a Grid

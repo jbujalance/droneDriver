@@ -22,7 +22,7 @@ public class SquaredDriver extends AbstractDriver {
 	}
 
 	@Override
-	public Set<String> getCellIdsToVisit(final Coords pCoords, final int pRange) {
+	Set<String> findCellIdsToVisit(final Coords pCoords, final int pRange) {
 		Set<String> cellIdsToVisit = new HashSet<>();
 		String originCellId = fGrid.getCellIdByCoordinates(pCoords).orElseThrow(() -> new IllegalArgumentException("The coordinates of the origin cell must be within the grid boundaries"));
 		for (String columnCellId : getCellIdsInColumnFromCentralCell(originCellId, pRange)) {

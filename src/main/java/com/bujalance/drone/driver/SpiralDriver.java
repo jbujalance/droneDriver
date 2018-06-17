@@ -91,7 +91,7 @@ public class SpiralDriver extends AbstractDriver {
 	}
 
 	@Override
-	public Set<String> getCellIdsToVisit(final Coords pOriginCoords, final int pRange) {
+	Set<String> findCellIdsToVisit(final Coords pOriginCoords, final int pRange) {
 		Set<String> cellIds = new HashSet<>();
 		String originCellId = fGrid.getCellIdByCoordinates(pOriginCoords).orElseThrow(() -> new IllegalArgumentException("The coordinates of the origin cell must be within the grid boundaries"));
 		for (int i = 0; i <= pRange; i++) {
