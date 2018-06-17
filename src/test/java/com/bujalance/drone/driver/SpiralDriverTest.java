@@ -12,13 +12,21 @@ import java.util.Set;
 
 public class SpiralDriverTest {
 
+	@Test(expected = NullPointerException.class)
+	public void constructorWithNullGrid() {
+		// WHEN building a driver over a null grid
+		new SpiralDriver(null);
+
+		// THEN an exception is thrown
+	}
+
 	@Test(expected = IllegalArgumentException.class)
 	public void getCellIdsToVisitWithInvalidRange() {
 		// GIVEN a driver over a grid
-		IDriver squaredDriver = new SquaredDriver(new Grid(2, 2));
+		IDriver spiralDriver = new SpiralDriver(new Grid(2, 2));
 
 		// WHEN retrieving the cell ids to visit with an invalid range
-		squaredDriver.getCellIdsToVisit(new Coords(1, 1), -1);
+		spiralDriver.getCellIdsToVisit(new Coords(1, 1), -1);
 
 		// THEN an exception is thrown
 	}

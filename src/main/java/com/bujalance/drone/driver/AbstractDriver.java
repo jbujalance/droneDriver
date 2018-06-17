@@ -2,6 +2,7 @@ package com.bujalance.drone.driver;
 
 import com.bujalance.drone.model.Coords;
 import com.bujalance.drone.model.Grid;
+import org.apache.commons.lang3.Validate;
 
 import java.util.Set;
 
@@ -14,7 +15,7 @@ public abstract class AbstractDriver implements IDriver {
 	 * @param pGrid the cell grid to be analyzed by the driver.
 	 */
 	public AbstractDriver(final Grid pGrid) {
-		fGrid = pGrid;
+		Validate.notNull(fGrid = pGrid, "The Driver must be provided with a grid");
 	}
 
 	@Override

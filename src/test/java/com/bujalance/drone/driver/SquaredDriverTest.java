@@ -13,6 +13,14 @@ import static org.junit.Assert.assertThat;
 
 public class SquaredDriverTest {
 
+	@Test(expected = NullPointerException.class)
+	public void constructorWithNullGrid() {
+		// WHEN building a driver over a null grid
+		new SquaredDriver(null);
+
+		// THEN an exception is thrown
+	}
+
 	@Test(expected = IllegalArgumentException.class)
 	public void getCellIdsToVisitWithInvalidRange() {
 		// GIVEN a driver over a grid
