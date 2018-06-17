@@ -5,67 +5,32 @@ package com.bujalance.drone.model;
  */
 public class Cell {
 
-	/** X coordinate of the cell in the grid. */
-	private Integer fCoordX;
-	/** Y coordinate of the cell in the grid. */
-	private Integer fCoordY;
+	/** Cell coordinates */
+	private Coords fCoords;
 	/** The cell Id. */
 	private String fId;
 
-	/**
-	 * Automatic-id constructor.
-	 * The Id of the cell will be 'Cell_x,y' where x is the X coordinate of the cell and y the Y coordinate.
-	 *
-	 * @param pCoordX X coordinate of the cell
-	 * @param pCoordY Y coordinate of the cell
-	 */
-	public Cell(final Integer pCoordX, final Integer pCoordY) {
-		this(pCoordX, pCoordY, coordinatesToId(pCoordX, pCoordY));
+	public final static String ID_PREFIX = "Cell_";
+	public final static String ID_COORDS_SEPARATOR = ",";
+
+	public Cell(final Coords pCoords) {
+		fCoords = pCoords;
+		fId = coordinatesToId(pCoords);
 	}
 
 	/**
-	 * Full constructor.
-	 *
-	 * @param pCoordX X coordinate of the cell
-	 * @param pCoordY Y coordinate of the cell
-	 * @param pId     the cell Id
+	 * @param pCoords cell coordinates
+	 * @return an Id generated from the coordinates of this form: 'Cell_x,y' where x is the row of the cell in the grid and y the column.
 	 */
-	public Cell(final Integer pCoordX, final Integer pCoordY, final String pId) {
-		fCoordX = pCoordX;
-		fCoordY = pCoordY;
-		fId = pId;
+	private static String coordinatesToId(final Coords pCoords) {
+		return ID_PREFIX + pCoords.getRow() + ID_COORDS_SEPARATOR + pCoords.getCol();
 	}
 
-	/**
-	 * @param pCoordX X coordinate
-	 * @param pCoordY Y coordinate
-	 * @return an Id generated from the coordinates of this form: 'Cell_x,y' where x is the X coordinate of the cell and y the Y coordinate.
-	 */
-	private static String coordinatesToId(final Integer pCoordX, final Integer pCoordY) {
-		return "Cell_" + pCoordX + "," + pCoordY;
-	}
-
-	public Integer getCoordX() {
-		return fCoordX;
-	}
-
-	public void setCoordX(final Integer pCoordX) {
-		fCoordX = pCoordX;
-	}
-
-	public Integer getCoordY() {
-		return fCoordY;
-	}
-
-	public void setCoordY(final Integer pCoordY) {
-		fCoordY = pCoordY;
+	public Coords getCoords() {
+		return fCoords;
 	}
 
 	public String getId() {
 		return fId;
-	}
-
-	public void setId(final String pId) {
-		fId = pId;
 	}
 }
