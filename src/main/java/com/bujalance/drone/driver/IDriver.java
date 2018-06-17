@@ -11,7 +11,6 @@ import java.util.Set;
 public interface IDriver {
 
 	/**
-	 *
 	 * @param pCoords the coordinates of the central cell whose neighbours are to be visited.
 	 * @param pRange the range of cells surrounding the central cell that have to be visited.
 	 * @return the set of unique cell Ids to be visited by the drone.
