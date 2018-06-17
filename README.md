@@ -20,3 +20,8 @@ Two implementations of the Driver:
 Does not support the end of the grid. _See the Javadoc._
 * `SquaredDriver`: Follows a square pattern to find the cell Ids to visit.
 This driver correctly manages the end of the grid. _See the Javadoc._
+
+## Results
+See the test for the results:
+* `SquaredDriverTest`
+* `SpiralDriverTest`
